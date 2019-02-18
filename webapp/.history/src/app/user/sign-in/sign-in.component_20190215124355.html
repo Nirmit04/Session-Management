@@ -1,0 +1,21 @@
+<form #loginForm="ngForm" class="col s12 white">
+    <div class="row">
+        <div class="input-field col s12">
+            <i class="material-icons prefix">account_box</i>
+            <input type="text" placeholder="UserName" name="UserName" #UserName="ngModel" [(ngModel)]="zz" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12 fix">
+            <i class="material-icons prefix">vpn_key</i>
+            <input [type]="visible" placeholder="Password" name="Password" #Password="ngModel" [(ngModel)]="bb"
+                required>
+            <i (mousedown)="toggle1()" (mouseup)="toggle1()" class="fas fa-eye fix1"></i>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <button class="btn-large btn-submit" type="submit">Login</button>
+        </div>
+    </div>
+</form>

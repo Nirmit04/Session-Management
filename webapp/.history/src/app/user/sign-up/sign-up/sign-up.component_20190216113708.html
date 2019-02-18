@@ -1,0 +1,60 @@
+<form class="col s11 white " #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)">
+  <div class="row">
+    <div class="input-field col s6">
+      <input class="validate" type="text" name="UserName" #UserName="ngModel" [(ngModel)]="user.UserName" required>
+      <label data-error="Required field!">UserName</label>
+    </div>
+    <div class="input-field col s6 fix">
+
+      <input class="validate" [type]="visible" name="Password" #Password="ngModel" [(ngModel)]="user.Password" required
+        minlength="4">
+      <i (mousedown)="toggle1()" (mouseup)="toggle1()" class="fas fa-eye fix1"></i>
+      <label
+        [attr.data-error]="Password.errors!=null?(Password.errors.required?'Required field!':'Minimum 4 characters needed'):''">Password</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <input class="validate" type="text" name="Email" #Email="ngModel" [(ngModel)]="user.Email"
+        [pattern]="emailPattern" required>
+      <label data-error="Invalid email!">Email</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <input type="text" name="FirstName" #FirstName="ngModel" [(ngModel)]="user.FirstName">
+      <label>First Name</label>
+    </div>
+    <div class="input-field col s6">
+      <input type="text" name="LastName" #LastName="ngModel" [(ngModel)]="user.LastName">
+      <label>Last Name</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <input class="validate" type="text" pattern="[6-9]\d{9}$" name="PhoneNumber" #PhoneNumber="ngModel"
+        [(ngModel)]="user.PhoneNumber" required minlength="10" maxlength="10">
+      <label
+        [attr.data-error]="Mobile.errors!=null?(Mobile.errors.required?'Required field!':'10 characters needed'):''">Mobile</label>
+    </div>
+    <div class="input-field col s6">
+      <input type="date" class="validate" name="dob" #dob="ngModel" [(ngModel)]="user.dob" required>
+      <label data-error="Required field!">Date Of Birth</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <br><input type="text" name="post" #post="ngModel" [(ngModel)]="user.post" required class="validate">
+      <label data-error="Required field!">Post</label>
+    </div>
+    <div class="input-field col s6">
+      <label>Photo</label><br><br>
+      <input type="file" accept="image/*" (change)="onFileSelected($event)" name="photo" #Image>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <button [disabled]="!userRegistrationForm.valid" class="btn-large btn-submit" type="submit">Submit</button>
+    </div>
+  </div>
+</form>

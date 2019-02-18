@@ -1,0 +1,15 @@
+*{
+    margin:0 0 0 0;
+    padding:0 0 0 0;
+}
+.fix{
+    position:relative;
+}
+.fix1{
+    position: absolute;
+    top:20px;
+    right:10px;
+}
+.thunder{
+    margin-top:10px;
+}
